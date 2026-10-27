@@ -20,6 +20,6 @@ withDefaults(
       class="size-[14px] object-contain"
     /> -->
 
-    <span class="text-base text-brand-blue">{{ label }}</span>
+    <span class="text-base text-primary">{{ label }}</span>
   </span>
 </template>

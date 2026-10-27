@@ -35,7 +35,7 @@ withDefaults(defineProps<StatementHeadingProps>(), {
         /> -->
 
         <span
-          class="text-base max-[640px]:text-xs max-[640px]:font-bold text-brand-blue"
+          class="text-base max-[640px]:text-xs max-[640px]:font-bold text-primary"
         >
           {{ brand }}
         </span>

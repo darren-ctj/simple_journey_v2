@@ -87,7 +87,7 @@ import ProductCard from "@/components/ui/product-card.vue";
 
       <RouterLink
         to="/products"
-        class="relative z-[3] mt-6 inline-block text-brand-blue no-underline"
+        class="relative z-[3] mt-6 inline-block text-primary no-underline"
       >
         <motion.span
           :initial="{ opacity: 0 }"
