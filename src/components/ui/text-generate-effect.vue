@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { computed, onBeforeUnmount, onMounted, ref } from "vue";
+import { computed } from "vue";
+import { Motion } from "motion-v";
 
 type TextTag = "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p";
 
@@ -20,12 +21,6 @@ const props = withDefaults(
     highlights: () => [],
   },
 );
-
-const root = ref<HTMLElement | null>(null);
-
-const isVisible = ref(false);
-
-let observer: IntersectionObserver | undefined;
 
 const tokens = computed(() => {
   const source = props.words;
@@ -62,55 +57,48 @@ const tokens = computed(() => {
     cursor = match.index + match[0].length;
   }
 
-  return { items, trailing: source.slice(cursor) };
+  return {
+    items,
+    trailing: source.slice(cursor),
+  };
 });
 
-const durationMs = computed(() => `${Math.max(0, props.duration) * 1000}ms`);
-
-onMounted(() => {
-  if (window.matchMedia?.("(prefers-reduced-motion: reduce)").matches) {
-    isVisible.value = true;
-    return;
-  }
-
-  if (!("IntersectionObserver" in window)) {
-    isVisible.value = true;
-    return;
-  }
-
-  observer = new IntersectionObserver(
-    (entries) => {
-      if (entries.some((entry) => entry.isIntersecting)) {
-        isVisible.value = true;
-        observer?.disconnect();
-        observer = undefined;
-      }
-    },
-    { threshold: 0.1 },
-  );
-
-  if (root.value) observer.observe(root.value);
-});
-
-onBeforeUnmount(() => observer?.disconnect());
+const transition = computed(() => ({
+  duration: Math.max(0, props.duration),
+  delay: 0,
+  ease: [0.22, 1, 0.36, 1] as const,
+}));
 </script>
 
 <template>
-  <component :is="tag" ref="root" :class="props.class">
+  <component :is="tag" :class="props.class">
     <template v-for="token in tokens.items" :key="token.id">
       {{ token.prefix
-      }}<span
-        class="inline-block transition-[opacity,filter,transform] ease-out motion-reduce:!transform-none motion-reduce:!opacity-100 motion-reduce:!blur-0 motion-reduce:!transition-none"
-        :class="[
-          isVisible
-            ? 'translate-y-0 opacity-100 blur-0'
-            : 'translate-y-[0.12em] opacity-0 blur-[10px]',
-        ]"
-        :style="{
-          transitionDuration: durationMs,
-          transitionDelay: `${token.id * Math.max(0, props.stagger) * 1000}ms`,
+      }}<Motion
+        as="span"
+        class="inline-block"
+        :initial="{
+          opacity: 0,
+          y: '0.12em',
+          filter: 'blur(10px)',
         }"
-        >{{ token.text }}</span
+        whileInView="visible"
+        :viewport="{
+          once: true,
+          amount: 0.1,
+        }"
+        :variants="{
+          visible: {
+            opacity: 1,
+            y: 0,
+            filter: 'blur(0px)',
+            transition: {
+              ...transition,
+              delay: token.id * Math.max(0, props.stagger),
+            },
+          },
+        }"
+        >{{ token.text }}</Motion
       > </template
     >{{ tokens.trailing }}
   </component>
