@@ -30,13 +30,13 @@ function handleNavigationClick() {
     :class="[
       'fixed left-1/2 top-0 z-[100] w-screen -translate-x-1/2',
       isScrolled &&
-        'overflow-hidden bg-glass-surface border-b border-border/25',
+        'overflow-hidden bg-white/05 backdrop-blur-sm border-b border-border/25',
     ]"
   >
     <nav
       :class="[
         'container-wide flex items-center justify-between',
-        'py-2.5 xl:py-5',
+        'py-2.5',
         'transition-all duration-300',
       ]"
     >

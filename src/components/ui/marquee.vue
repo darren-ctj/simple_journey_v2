@@ -22,6 +22,7 @@ const attrs = useAttrs();
 
 const containerClass = computed(() => [
   "group flex flex-row gap-(--gap) overflow-hidden p-2 [--duration:40s] [--gap:1rem]",
+  "[mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]",
   props.class,
 ]);
 

@@ -177,17 +177,11 @@
   h6 {
     font-family: var(--font-heading);
     font-weight: 600;
-    letter-spacing: -0.035em;
-    line-height: 1.15;
     background: linear-gradient(to bottom, #ffffff 0%, #e2e8f0 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     color: transparent;
-  }
-
-  h1 {
-    letter-spacing: -0.055em;
   }
 
   p {
