@@ -1,25 +1,18 @@
 <script setup lang="ts">
 import { computed } from "vue";
-
-type ButtonVariant = "primary" | "ghost" | "outline";
-
-type ButtonSize = "sm" | "md" | "lg" | "icon";
+import type { ButtonVariant, ButtonSize } from "@/types/button";
 
 const props = withDefaults(
   defineProps<{
     variant?: ButtonVariant;
     size?: ButtonSize;
     disabled?: boolean;
-    loading?: boolean;
-    glow?: boolean;
     type?: "button" | "submit" | "reset";
   }>(),
   {
     variant: "primary",
     size: "md",
     disabled: false,
-    loading: false,
-    glow: false,
     type: "button",
   },
 );
@@ -31,7 +24,7 @@ const baseClasses =
 
 const variants: Record<ButtonVariant, string> = {
   primary:
-    "border border-primary/30 bg-gradient-primary text-primary-foreground shadow-[0_4px_18px_rgba(30,136,255,0.18)] hover:shadow-[0_6px_28px_rgba(30,136,255,0.32)]",
+    "border border-primary/30 bg-primary text-primary-foreground shadow-[0_4px_18px_rgba(30,136,255,0.18)] hover:shadow-[0_6px_28px_rgba(30,136,255,0.32)]",
   ghost:
     "border border-transparent bg-transparent text-foreground hover:bg-white/5 hover:text-primary-glow",
   outline:
@@ -46,14 +39,7 @@ const sizes: Record<ButtonSize, string> = {
 };
 
 const classes = computed(() =>
-  [
-    baseClasses,
-    variants[props.variant],
-    sizes[props.size],
-    props.glow && props.variant === "outline"
-      ? "shadow-[0_0_24px_rgba(30,136,255,0.18)] hover:shadow-[0_0_32px_rgba(30,136,255,0.3)]"
-      : "",
-  ].join(" "),
+  [baseClasses, variants[props.variant], sizes[props.size]].join(" "),
 );
 </script>
 
@@ -61,46 +47,9 @@ const classes = computed(() =>
   <button
     :type="type"
     :class="classes"
-    :disabled="disabled || loading"
+    :disabled="disabled"
     @click="$emit('click', $event)"
   >
-    <span
-      v-if="variant === 'outline'"
-      aria-hidden="true"
-      class="pointer-events-none absolute inset-y-0 left-0 z-0 w-1/2 -translate-x-[150%] skew-x-[-20deg] bg-gradient-to-r from-transparent via-white/15 to-transparent motion-safe:group-hover:animate-shine motion-reduce:hidden"
-    />
-
-    <span
-      v-if="glow && variant === 'outline'"
-      aria-hidden="true"
-      class="pointer-events-none absolute inset-0 z-0 rounded-full bg-primary/5 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-    />
-
-    <svg
-      v-if="loading"
-      aria-hidden="true"
-      class="relative z-10 size-4 animate-spin"
-      viewBox="0 0 24 24"
-      fill="none"
-    >
-      <circle
-        class="opacity-25"
-        cx="12"
-        cy="12"
-        r="10"
-        stroke="currentColor"
-        stroke-width="4"
-      />
-
-      <path
-        class="opacity-75"
-        fill="currentColor"
-        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
-      />
-    </svg>
-
-    <span class="relative z-10">
-      <slot />
-    </span>
+    <slot />
   </button>
 </template>

@@ -4,6 +4,8 @@ import { useRoute } from "vue-router";
 import Button from "../ui/button.vue";
 import { useScrolled } from "@/composables/use-scrolled";
 import { MENU_ITEMS } from "@/constants/menu.ts";
+import { ArrowRight } from "@lucide/vue";
+import ShinyWrapper from "../ui/shiny-wrapper.vue";
 
 const route = useRoute();
 const { isScrolled } = useScrolled();
@@ -24,18 +26,18 @@ function handleNavigationClick() {
 </script>
 
 <template>
-  <div class="fixed left-1/2 top-0 z-[100] w-screen -translate-x-1/2 border-b">
+  <div
+    :class="[
+      'fixed left-1/2 top-0 z-[100] w-screen -translate-x-1/2',
+      isScrolled &&
+        'overflow-hidden bg-glass-surface border-b border-border/25',
+    ]"
+  >
     <nav
       :class="[
         'container-wide flex items-center justify-between',
         'py-2.5 xl:py-5',
-        'shadow-[0_4px_30px_#0000001a]',
         'transition-all duration-300',
-        isScrolled && [
-          'overflow-hidden',
-          '!bg-nav-surface/90',
-          '!shadow-[0_8px_32px_#0000004d]',
-        ],
       ]"
     >
       <img
@@ -45,65 +47,55 @@ function handleNavigationClick() {
         class="h-[50px] w-[88px]"
       />
 
-      <div class="flex items-center gap-1.5 md:gap-4">
-        <ul
-          class="m-0 hidden list-none items-center justify-center gap-8 p-0 lg:flex xl:gap-16"
-        >
-          <li v-for="item in MENU_ITEMS" :key="item.to">
-            <RouterLink
-              to="/"
-              class="group relative text-base text-navigation-foreground no-underline transition-colors duration-300 hover:text-primary"
-              :class="{
-                'font-semibold text-primary': isMenuLinkActive(item.to),
-              }"
-            >
-              {{ item.label }}
+      <ul class="hidden lg:flex items-center justify-center list-none gap-4">
+        <li v-for="item in MENU_ITEMS" :key="item.to">
+          <RouterLink
+            to="/"
+            class="group relative text-sm text-navigation-foreground no-underline transition-colors duration-300 hover:text-primary px-5 py-1.5 rounded-xl"
+            :class="{
+              'font-semibold text-primary bg-primary/10': isMenuLinkActive(
+                item.to,
+              ),
+            }"
+          >
+            {{ item.label }}
+          </RouterLink>
+        </li>
+      </ul>
 
-              <span
-                class="absolute -bottom-1.5 left-0 h-0.5 w-0 bg-primary transition-[width] duration-300 group-hover:w-full"
-                :class="{ 'w-full': isMenuLinkActive(item.to) }"
-              />
-            </RouterLink>
-          </li>
+      <!-- <ShinyWrapper class="hidden lg:block rounded-full"> -->
+      <RouterLink to="/" class="hidden lg:block">
+        <Button variant="outline">
+          Get Started
+          <ArrowRight class="size-4" />
+        </Button>
+      </RouterLink>
+      <!-- </ShinyWrapper> -->
 
-          <li>
-            <RouterLink to="/contact" class="block">
-              <Button variant="outline" size="lg" :glow="true"
-                >Contact Us</Button
-              >
-            </RouterLink>
-          </li>
-        </ul>
-
-        <RouterLink to="/contact" class="block lg:hidden">
-          <Button variant="outline" size="lg" :glow="true">Contact Us</Button>
-        </RouterLink>
-
-        <button
-          type="button"
-          aria-label="Toggle menu"
-          :aria-expanded="isMobileMenuOpen"
-          class="flex cursor-pointer flex-col gap-1 border-none bg-transparent px-1.5 py-0.5 lg:hidden"
-          @click="handleMenuToggle"
-        >
-          <span
-            class="h-px w-5 bg-white transition-all duration-300"
-            :class="isMobileMenuOpen ? 'translate-y-[5px] rotate-45' : ''"
-          />
-          <span
-            class="h-px w-5 bg-white transition-all duration-300"
-            :class="{ 'opacity-0': isMobileMenuOpen }"
-          />
-          <span
-            class="h-px w-5 bg-white transition-all duration-300"
-            :class="{ 'opacity-0': isMobileMenuOpen }"
-          />
-          <span
-            class="h-px w-5 bg-white transition-all duration-300"
-            :class="isMobileMenuOpen ? '-translate-y-[5px] -rotate-45' : ''"
-          />
-        </button>
-      </div>
+      <button
+        type="button"
+        aria-label="Toggle menu"
+        :aria-expanded="isMobileMenuOpen"
+        class="flex cursor-pointer flex-col gap-1 border-none bg-transparent px-1.5 py-0.5 lg:hidden"
+        @click="handleMenuToggle"
+      >
+        <span
+          class="h-px w-5 bg-white transition-all duration-300"
+          :class="isMobileMenuOpen ? 'translate-y-[5px] rotate-45' : ''"
+        />
+        <span
+          class="h-px w-5 bg-white transition-all duration-300"
+          :class="{ 'opacity-0': isMobileMenuOpen }"
+        />
+        <span
+          class="h-px w-5 bg-white transition-all duration-300"
+          :class="{ 'opacity-0': isMobileMenuOpen }"
+        />
+        <span
+          class="h-px w-5 bg-white transition-all duration-300"
+          :class="isMobileMenuOpen ? '-translate-y-[5px] -rotate-45' : ''"
+        />
+      </button>
     </nav>
 
     <Transition
@@ -149,6 +141,13 @@ function handleNavigationClick() {
           >
             {{ item.label }}
           </RouterLink>
+
+          <ShinyWrapper class="rounded-full">
+            <Button variant="outline">
+              Get Started
+              <ArrowRight class="size-4" />
+            </Button>
+          </ShinyWrapper>
         </div>
       </div>
     </Transition>

@@ -46,9 +46,24 @@
   --radius-2xl: calc(var(--radius) + 8px);
   --radius-full: 9999px;
 
-  --shadow-glass-card: var(--shadow-glass-card);
-
   --animate-shine: shine 1s ease-in-out;
+  --animate-marquee: marquee var(--duration) infinite linear;
+
+  @keyframes shine {
+    100% {
+      transform: translateX(150%) skewX(-20deg);
+    }
+  }
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+
+    to {
+      transform: translateX(calc(-100% - var(--gap)));
+    }
+  }
 }
 
 :root {
@@ -91,11 +106,8 @@
   --chart-5: #b7cfff;
 
   --surface-raised: #0b192b;
-  --surface-glass: rgb(10 25 44 / 72%);
+  --surface-glass: rgb(10 25 44 / 15%);
   --text-subtle: #8195b2;
-
-  --shadow-glass-card:
-    inset 0 1px 0 rgb(255 255 255 / 5%), 0 0 32px rgb(30 136 255 / 7%);
 
   --gradient-primary: linear-gradient(135deg, #1e88ff 0%, #1466a8 100%);
   --gradient-horizon: linear-gradient(
@@ -104,12 +116,6 @@
     rgb(108 182 255 / 22%) 48%,
     rgb(30 136 255 / 18%) 72%,
     rgb(30 136 255 / 0%) 100%
-  );
-  --gradient-page-glow: radial-gradient(
-    ellipse at 50% 0%,
-    rgb(30 136 255 / 12%) 0%,
-    rgb(30 136 255 / 4%) 34%,
-    transparent 68%
   );
 
   --radius: 0.875rem;
@@ -125,14 +131,6 @@
 }
 
 /* Background Utilities */
-@utility bg-gradient-primary {
-  background: var(--gradient-primary);
-}
-
-@utility bg-page-glow {
-  background-image: var(--gradient-page-glow);
-}
-
 @utility bg-horizon-glow {
   background-image: var(--gradient-horizon);
 }
@@ -140,8 +138,8 @@
 @utility glass-surface {
   background: var(--surface-glass);
   border: 1px solid var(--border);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
 }
 
 /* Automatic Setup */
@@ -160,8 +158,6 @@
     padding: 0;
     overflow-x: clip;
     background-color: var(--background);
-    /* background-image: var(--gradient-page-glow); */
-    /* background-repeat: no-repeat; */
     color: var(--foreground);
     font-family: var(--font-sans);
     font-size: 16px;
@@ -223,12 +219,5 @@
   :focus-visible {
     outline: 2px solid var(--ring);
     outline-offset: 3px;
-  }
-}
-
-/* Keyframes */
-@keyframes shine {
-  100% {
-    transform: translateX(150%) skewX(-20deg);
   }
 }
