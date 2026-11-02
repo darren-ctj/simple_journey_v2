@@ -28,14 +28,28 @@ import Marquee from "@/components/ui/marquee.vue";
       </video>
     </div>
 
+    <!-- Background Image -->
+    <div class="absolute z-[1] left-0 top-0 w-full h-[70%]">
+      <img
+        src="/features/home/hero-section-bg.webp"
+        alt="Background Image"
+        class="w-full h-full object-cover opacity-20"
+        :style="{
+          maskImage: 'linear-gradient(to bottom, black 85%, transparent 100%)',
+          WebkitMaskImage:
+            'linear-gradient(to bottom, black 85%, transparent 100%)',
+        }"
+      />
+    </div>
+
     <!-- Background Overlay -->
     <div
-      class="absolute z-[1] left-0 bottom-0 w-full h-full bg-gradient-to-b from-transparent via-black/20 via-80% to-black/5"
+      class="absolute z-[2] left-0 bottom-0 w-full h-full bg-gradient-to-b from-transparent via-black/20 via-80% to-black/5"
     />
 
     <!-- Content -->
     <section
-      class="relative z-[2] container-wide flex flex-col items-center text-center pt-32 pb-24 lg:pt-42 lg:pb-32"
+      class="relative z-[3] container-wide flex flex-col items-center text-center pt-32 pb-24 lg:pt-42 lg:pb-32"
     >
       <motion.div
         :initial="{ opacity: 0, y: 10, filter: 'blur(10px)' }"
@@ -128,7 +142,7 @@ import Marquee from "@/components/ui/marquee.vue";
               { name: 'Spotify', src: '/features/home/trusted-by/spotify.svg' },
             ]"
             :key="index"
-            class="flex items-center justify-center h-10 w-28 rounded-lg bg-secondary-foreground/75"
+            class="flex items-center justify-center h-10 w-28 rounded-sm bg-secondary-foreground/75"
           >
             <img
               :src="logo.src"
