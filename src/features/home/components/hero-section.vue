@@ -5,18 +5,17 @@ import { motion } from "motion-v";
 import { ArrowRight } from "@lucide/vue";
 import ShinyWrapper from "@/components/ui/shiny-wrapper.vue";
 import Marquee from "@/components/ui/marquee.vue";
+import CountUp from "@/components/ui/count-up.vue";
 </script>
 
 <template>
   <div class="relative z-[1] w-screen">
     <!-- Background Video -->
     <div class="absolute z-0 left-0 bottom-0 w-full h-full">
-      <div
-        class="w-full h-[30%] bg-gradient-to-b from-[#071426] to-[#0f0f16]"
-      />
+      <div class="w-full h-[30%] bg-background" />
 
       <video
-        class="w-full h-[70%] object-cover"
+        class="w-full h-[70%] object-cover [mask-image:linear-gradient(to_bottom,black,black_80%,transparent)]"
         autoplay
         loop
         muted
@@ -49,7 +48,7 @@ import Marquee from "@/components/ui/marquee.vue";
 
     <!-- Content -->
     <section
-      class="relative z-[3] container-wide flex flex-col items-center text-center pt-32 pb-24 lg:pt-42 lg:pb-32"
+      class="relative z-[3] container-wide flex flex-col items-center text-center pt-32 pb-30 lg:pt-42 lg:pb-38"
     >
       <motion.div
         :initial="{ opacity: 0, y: 10, filter: 'blur(10px)' }"
@@ -153,5 +152,35 @@ import Marquee from "@/components/ui/marquee.vue";
         </Marquee>
       </motion.div>
     </section>
+
+    <!-- Statistics Card -->
+    <div
+      class="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-[calc(100%-2rem)] max-w-3xl bg-surface-glass backdrop-blur-lg border rounded-2xl p-6 md:p-8 grid grid-cols-3 gap-4"
+    >
+      <div class="flex flex-col items-center text-center gap-1">
+        <div class="text-3xl md:text-4xl font-semibold tracking-tight">
+          <CountUp :to="12" />+
+        </div>
+        <p class="text-xs md:text-sm text-muted-foreground">
+          Successful Products
+        </p>
+      </div>
+
+      <div class="flex flex-col items-center text-center gap-1">
+        <div class="text-3xl md:text-4xl font-semibold tracking-tight">
+          <CountUp :to="10" />+
+        </div>
+        <p class="text-xs md:text-sm text-muted-foreground">Happy Customers</p>
+      </div>
+
+      <div class="flex flex-col items-center text-center gap-1">
+        <div class="text-3xl md:text-4xl font-semibold tracking-tight">
+          <CountUp :to="8" />+
+        </div>
+        <p class="text-xs md:text-sm text-muted-foreground">
+          Years of Experience
+        </p>
+      </div>
+    </div>
   </div>
 </template>

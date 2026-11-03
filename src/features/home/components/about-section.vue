@@ -1174,11 +1174,11 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <section class="relative z-[1] w-screen">
+  <section class="relative z-[1] w-screen overflow-hidden">
     <div
-      class="relative container-wide flex flex-col items-start text-left pt-20 pb-12 lg:pt-28 lg:pb-20"
+      class="relative container-wide flex flex-col items-start text-left pt-28 pb-12 lg:pt-32 lg:pb-20"
     >
-      <div
+      <!-- <div
         class="pointer-events-none absolute top-0 right-0 -z-[1] h-[720px] w-[720px] translate-x-1/4 -translate-y-1/2 rounded-full opacity-17 blur-[100px]"
         style="
           background: radial-gradient(
@@ -1188,7 +1188,7 @@ onBeforeUnmount(() => {
             transparent 70%
           );
         "
-      />
+      /> -->
 
       <motion.p
         :initial="{ opacity: 0, y: 10, filter: 'blur(10px)' }"
