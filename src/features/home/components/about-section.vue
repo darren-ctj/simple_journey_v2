@@ -1215,7 +1215,7 @@ onBeforeUnmount(() => {
         :while-in-view="{ opacity: 1, y: 0, filter: 'blur(0px)' }"
         :transition="{ duration: 0.6, delay: 0.4 }"
         :viewport="{ once: true }"
-        class="w-full max-w-xl text-base text-muted-foreground max-sm:text-sm max-sm:leading-relaxed mb-12"
+        class="w-full max-w-xl text-base text-muted-foreground max-sm:text-sm max-sm:leading-relaxed mb-8 sm:mb-12"
       >
         PT Simple Journey is an IT consulting company and a provider of
         Infrastructure Solutions, Digital Solutions, Cross-Industry Solutions,

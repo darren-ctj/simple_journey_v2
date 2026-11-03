@@ -48,7 +48,7 @@ import CountUp from "@/components/ui/count-up.vue";
 
     <!-- Content -->
     <section
-      class="relative z-[3] container-wide flex flex-col items-center text-center pt-32 pb-30 lg:pt-42 lg:pb-38"
+      class="relative z-[3] container-wide flex flex-col items-start sm:items-center text-left sm:text-center pt-32 pb-30 lg:pt-42 lg:pb-38"
     >
       <motion.div
         :initial="{ opacity: 0, y: 10, filter: 'blur(10px)' }"
@@ -56,7 +56,7 @@ import CountUp from "@/components/ui/count-up.vue";
         :transition="{ duration: 0.6, delay: 0 }"
         :viewport="{ once: true }"
       >
-        <Badge class="pl-1.5 mb-7">
+        <Badge class="pl-1.5 mb-4 sm:mb-7">
           <div
             class="tracking-widest text-background bg-secondary-foreground text-[10px] px-1.5 py-1 rounded-sm mr-0.5"
           >
@@ -82,7 +82,7 @@ import CountUp from "@/components/ui/count-up.vue";
         :while-in-view="{ opacity: 1, y: 0, filter: 'blur(0px)' }"
         :transition="{ duration: 0.6, delay: 0.4 }"
         :viewport="{ once: true }"
-        class="w-full max-w-2xl text-base text-muted-foreground max-sm:text-sm max-sm:leading-relaxed mx-auto mb-7"
+        class="w-full max-w-2xl text-base text-muted-foreground max-sm:text-sm max-sm:leading-relaxed mx-auto mb-4 sm:mb-7"
       >
         Building scalable, secure, and intelligent digital solutions that
         streamline operations, empower teams, and accelerate your business
@@ -111,7 +111,7 @@ import CountUp from "@/components/ui/count-up.vue";
         :while-in-view="{ opacity: 1, y: 0, filter: 'blur(0px)' }"
         :transition="{ duration: 0.6, delay: 0 }"
         :viewport="{ once: true }"
-        class="mt-18 mb-4 text-[10px] uppercase tracking-widest text-muted-foreground"
+        class="mt-18 mb-4 text-[10px] w-full text-center uppercase tracking-widest text-muted-foreground"
       >
         Trusted by 12+ companies
       </motion.p>
