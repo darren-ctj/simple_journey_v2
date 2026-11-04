@@ -3,7 +3,7 @@ import { motion } from "motion-v";
 import { ArrowUpRight } from "@lucide/vue";
 import { WHY_CHOOSE_US_FEATURES } from "../constants/why-choose-us";
 import Badge from "@/components/ui/badge.vue";
-// import LogoCluster from "./logo-cluster.vue";
+import LayerStack from "@/components/ui/layer-stack.vue";
 </script>
 
 <template>
@@ -55,9 +55,7 @@ import Badge from "@/components/ui/badge.vue";
           :viewport="{ once: true }"
           class="group relative flex min-h-[340px] flex-col overflow-hidden rounded-2xl border bg-surface-glass sm:min-h-[360px]"
         >
-          <div
-            class="relative aspect-[3/2] flex items-center justify-center overflow-hidden"
-          >
+          <div class="aspect-[3/2]">
             <!-- Experienced & Proven Team Illustration -->
             <div
               v-if="feature.visual === 'team'"
@@ -67,11 +65,11 @@ import Badge from "@/components/ui/badge.vue";
             >
               <!-- Background decoration -->
               <div
-                class="absolute -right-12 -top-12 h-40 w-40 rounded-full bg-blue-500/10 blur-3xl"
+                class="absolute -right-12 -top-12 h-40 w-40 rounded-full bg-primary/10 blur-3xl"
               />
 
               <div
-                class="absolute -bottom-12 -left-12 h-40 w-40 rounded-full bg-indigo-200/40 blur-3xl dark:bg-indigo-500/10"
+                class="absolute -bottom-12 -left-12 h-40 w-40 rounded-full bg-primary/10 blur-3xl"
               />
 
               <!-- Main -->
@@ -165,6 +163,7 @@ import Badge from "@/components/ui/badge.vue";
                     }"
                     class="absolute inset-0 z-20 flex flex-col items-center gap-3"
                   >
+                    <!-- Avatar -->
                     <div
                       class="relative flex h-20 w-20 items-center justify-center rounded-full border-4 border-white bg-emerald-100 shadow-xl ring-4 ring-blue-400/20 dark:border-slate-800 dark:bg-emerald-950 sm:h-24 sm:w-24"
                     >
@@ -181,43 +180,31 @@ import Badge from "@/components/ui/badge.vue";
                       </span>
                     </div>
 
+                    <!-- Name -->
                     <div
-                      class="rounded-full bg-primary text-primary-foreground px-3 py-1 text-xs font-semibold text-white shadow-lg"
+                      class="rounded-full bg-primary px-3 py-1 text-xs font-semibold text-white shadow-lg"
                     >
                       Budi Santoso
                     </div>
-                  </motion.div>
 
-                  <!-- Floating cursor -->
-                  <motion.div
-                    :initial="{ x: 90, y: 70, opacity: 0 }"
-                    :animate="{
-                      x: [90, 55, 0, 0],
-                      y: [70, 30, 0, 0],
-                      opacity: [0, 1, 1, 0],
-                    }"
-                    :transition="{
-                      duration: 3.6,
-                      repeat: Infinity,
-                      repeatDelay: 0.8,
-                      times: [0, 0.45, 0.75, 1],
-                      ease: 'easeInOut',
-                    }"
-                    class="pointer-events-none absolute inset-0 z-30"
-                  >
-                    <svg
-                      viewBox="0 0 32 40"
-                      class="absolute right-0 top-0 h-8 w-8 drop-shadow-md"
-                      fill="none"
+                    <!-- Floating cursor -->
+                    <div
+                      class="pointer-events-none absolute right-11 bottom-8 z-30"
                     >
-                      <path
-                        d="M3 2L3 31L11 23L17 37L23 34L17 20L28 19L3 2Z"
-                        fill="#1E88FF"
-                        stroke="white"
-                        stroke-width="2"
-                        stroke-linejoin="round"
-                      />
-                    </svg>
+                      <svg
+                        viewBox="0 0 32 40"
+                        class="h-8 w-8 drop-shadow-md"
+                        fill="none"
+                      >
+                        <path
+                          d="M3 2L3 31L11 23L17 37L23 34L17 20L28 19L3 2Z"
+                          fill="#1E88FF"
+                          stroke="white"
+                          stroke-width="2"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </div>
                   </motion.div>
                 </div>
               </div>
@@ -226,13 +213,23 @@ import Badge from "@/components/ui/badge.vue";
             <!-- Reliable & Scalable Technology Illustration -->
             <div
               v-else-if="feature.visual === 'technology'"
-              class="aspect-[3/2] w-full overflow-hidden rounded-2xl p-5 sm:p-8"
+              class="relative w-full h-full flex items-center justify-center overflow-hidden rounded-t-2xl"
               role="img"
               aria-label="Illustration of technologies connected"
             >
+              <!-- Background decoration -->
+              <div
+                class="absolute -left-12 -top-12 h-40 w-40 rounded-full bg-primary/10 blur-3xl"
+              />
+
+              <div
+                class="absolute -bottom-12 -right-12 h-40 w-40 rounded-full bg-primary/10 blur-3xl"
+              />
+
+              <!-- Main -->
               <div class="**:fill-foreground relative mx-auto size-80">
                 <div
-                  class="bg-card shadow-black/6.5 ring-border absolute inset-0 m-auto flex size-9 items-center rounded-full shadow-sm ring *:m-auto"
+                  class="bg-surface-glass shadow-black/6.5 ring-border absolute inset-0 m-auto flex size-9 items-center rounded-full shadow-sm ring *:m-auto"
                 >
                   <img src="/favicon.svg" class="size-3.5" />
                 </div>
@@ -241,11 +238,11 @@ import Badge from "@/components/ui/badge.vue";
                   class="rotate-120 *:-rotate-120 absolute inset-0 flex items-center justify-between gap-12"
                 >
                   <div
-                    class="border-foreground/10 absolute inset-4 rounded-full border border-dashed"
+                    class="border-foreground/10 absolute inset-1.5 rounded-full border border-dashed"
                   />
 
                   <div
-                    class="bg-muted relative flex size-7 items-center rounded-full border backdrop-blur *:m-auto"
+                    class="bg-card relative flex size-7 items-center rounded-full border backdrop-blur *:m-auto -translate-x-1.5"
                   >
                     <img
                       src="https://cdn.simpleicons.org/firebase"
@@ -255,7 +252,7 @@ import Badge from "@/components/ui/badge.vue";
                   </div>
 
                   <div
-                    class="bg-card shadow-black/6.5 ring-border relative flex size-7 items-center rounded-full shadow-sm ring *:m-auto"
+                    class="bg-card shadow-black/6.5 ring-border relative flex size-7 items-center rounded-full shadow-sm ring *:m-auto translate-x-1.5"
                   >
                     <img
                       src="https://cdn.simpleicons.org/supabase"
@@ -269,11 +266,11 @@ import Badge from "@/components/ui/badge.vue";
                   class="absolute inset-12 flex items-center justify-between gap-12"
                 >
                   <div
-                    class="border-foreground/10 absolute inset-4 rounded-full border border-dashed"
+                    class="border-foreground/10 absolute inset-1.5 rounded-full border border-dashed"
                   />
 
                   <div
-                    class="bg-muted relative flex size-7 items-center rounded-full border backdrop-blur *:m-auto"
+                    class="bg-card relative flex size-7 items-center rounded-full border backdrop-blur *:m-auto -translate-x-1.5"
                   >
                     <img
                       src="https://cdn.simpleicons.org/vercel"
@@ -283,7 +280,7 @@ import Badge from "@/components/ui/badge.vue";
                   </div>
 
                   <div
-                    class="bg-card shadow-black/6.5 ring-border relative flex size-7 items-center rounded-full shadow-sm ring *:m-auto"
+                    class="bg-card shadow-black/6.5 ring-border relative flex size-7 items-center rounded-full shadow-sm ring *:m-auto translate-x-1.5"
                   >
                     <img
                       src="https://img.icons8.com/color/48/slack-new.png"
@@ -297,11 +294,11 @@ import Badge from "@/components/ui/badge.vue";
                   class="absolute inset-24 flex rotate-45 items-center justify-between gap-12 *:-rotate-45"
                 >
                   <div
-                    class="border-foreground/10 absolute inset-4 rounded-full border border-dashed"
+                    class="border-foreground/10 absolute inset-1.5 rounded-full border border-dashed"
                   />
 
                   <div
-                    class="bg-card shadow-black/6.5 ring-border relative flex size-7 items-center rounded-full shadow-sm ring *:m-auto"
+                    class="bg-card shadow-black/6.5 ring-border relative flex size-7 items-center rounded-full shadow-sm ring *:m-auto -translate-x-1.5"
                   >
                     <img
                       src="https://cdn.simpleicons.org/clerk"
@@ -311,7 +308,7 @@ import Badge from "@/components/ui/badge.vue";
                   </div>
 
                   <div
-                    class="bg-muted relative flex size-7 items-center rounded-full border backdrop-blur *:m-auto"
+                    class="bg-card relative flex size-7 items-center rounded-full border backdrop-blur *:m-auto translate-x-1.5"
                   >
                     <img
                       src="https://cdn.simpleicons.org/linear"
@@ -324,7 +321,24 @@ import Badge from "@/components/ui/badge.vue";
             </div>
 
             <!-- Tailored to Your Business Illustration -->
-            <template v-else-if="feature.visual === 'tailored'"> </template>
+            <div
+              v-else-if="feature.visual === 'tailored'"
+              class="relative w-full h-full flex items-center justify-center overflow-hidden rounded-t-2xl"
+              role="img"
+              aria-label="Illustration of tailored according to business"
+            >
+              <!-- Background decoration -->
+              <div
+                class="absolute -right-12 -top-12 h-40 w-40 rounded-full bg-primary/10 blur-3xl"
+              />
+
+              <div
+                class="absolute -bottom-12 -left-12 h-40 w-40 rounded-full bg-primary/10 blur-3xl"
+              />
+
+              <!-- Main -->
+              <LayerStack />
+            </div>
 
             <!-- Integrated End-to-End Support Illustration -->
             <template v-else> </template>
