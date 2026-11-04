@@ -4,6 +4,7 @@ import { ArrowUpRight } from "@lucide/vue";
 import { WHY_CHOOSE_US_FEATURES } from "../constants/why-choose-us";
 import Badge from "@/components/ui/badge.vue";
 import LayerStack from "@/components/ui/layer-stack.vue";
+import Journey from "@/components/ui/journey.vue";
 </script>
 
 <template>
@@ -355,11 +356,7 @@ import LayerStack from "@/components/ui/layer-stack.vue";
               />
 
               <!-- Main -->
-              <img
-                src="/features/home/why-choose-us/end-to-end-support.png"
-                alt="Illustration of integrated end to end support"
-                class="w-[calc(100%-100px)] opacity-90"
-              />
+              <Journey />
             </div>
           </div>
 

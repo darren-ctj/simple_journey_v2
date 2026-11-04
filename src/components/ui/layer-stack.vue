@@ -131,7 +131,7 @@ watchEffect((onCleanup) => {
 
 <template>
   <div
-    class="relative aspect-[3/2] w-full [container-type:inline-size] [--u:calc(100cqw/600)]"
+    class="relative w-full h-full [container-type:inline-size] [--u:calc(100cqw/600)]"
     @mouseenter="paused = true"
     @mouseleave="paused = false"
     @focusin="paused = true"
@@ -171,8 +171,11 @@ watchEffect((onCleanup) => {
           rx="70"
           ry="24"
           :filter="`url(#${id}-glow)`"
-          class="fill-[#2f6bff]/[0.28] opacity-0 transition-opacity duration-[420ms] ease-out"
+          class="fill-[var(--primary)] opacity-0 transition-opacity duration-[420ms] ease-out"
           :class="{ 'opacity-100': layer.index === active }"
+          :style="{
+            opacity: layer.index === active ? 0.28 : 0,
+          }"
         />
 
         <!-- Layer thickness -->
@@ -181,17 +184,17 @@ watchEffect((onCleanup) => {
             :width="SIZE"
             :height="SIZE"
             rx="9"
-            class="fill-[#ececef] stroke-[rgba(10,10,10,0.11)] [stroke-width:1] [vector-effect:non-scaling-stroke] transition-[fill,stroke] duration-[360ms] dark:fill-[#26262a] dark:stroke-[rgba(255,255,255,0.13)]"
+            class="fill-[var(--surface-raised)] stroke-[var(--border)] [stroke-width:1] [vector-effect:non-scaling-stroke] transition-[fill,stroke] duration-[360ms]"
             :class="{
-              'fill-[rgba(236,236,239,0.55)] dark:fill-[rgba(38,38,42,0.5)]':
-                layer.index < active,
+              'fill-[var(--surface-glass)]': layer.index < active,
             }"
           />
+
           <rect
             :width="SIZE"
             :height="SIZE"
             rx="9"
-            class="fill-[#2557d9] opacity-0 transition-opacity duration-[360ms]"
+            class="fill-[var(--primary-strong)] opacity-0 transition-opacity duration-[360ms]"
             :class="{ 'opacity-100': layer.index === active }"
           />
         </g>
@@ -202,11 +205,7 @@ watchEffect((onCleanup) => {
             :width="SIZE"
             :height="SIZE"
             rx="9"
-            class="fill-[rgba(255,255,255,0.6)] stroke-[rgba(10,10,10,0.11)] [stroke-width:1] [vector-effect:non-scaling-stroke] transition-[fill,stroke] duration-[360ms] dark:fill-[rgba(255,255,255,0.04)] dark:stroke-[rgba(255,255,255,0.13)]"
-            :class="{
-              'fill-[rgba(255,255,255,0.3)] dark:fill-[rgba(255,255,255,0.025)]':
-                layer.index < active,
-            }"
+            class="fill-[var(--surface-glass)] stroke-[var(--border)] [stroke-width:1] [vector-effect:non-scaling-stroke] transition-[fill,stroke] duration-[360ms]"
           />
 
           <!-- Active face -->
@@ -214,14 +213,14 @@ watchEffect((onCleanup) => {
             :width="SIZE"
             :height="SIZE"
             rx="9"
-            class="fill-[#e9f0ff] stroke-[#2f6bff] [stroke-width:1.6] opacity-0 transition-opacity duration-[360ms] dark:fill-[#1f2c4d] dark:stroke-[#6b95ff]"
+            class="fill-[var(--accent)] stroke-[var(--primary)] [stroke-width:1.6] opacity-0 transition-opacity duration-[360ms]"
             :class="{ 'opacity-100': layer.index === active }"
           />
 
           <!-- Layer icon -->
           <g
             :transform="`translate(${SIZE / 2 - 18} ${SIZE / 2 - 18}) scale(1.5)`"
-            class="fill-none stroke-[#2f6bff] [stroke-width:1.5] [stroke-linecap:round] [stroke-linejoin:round] opacity-0 transition-opacity duration-300 dark:stroke-[#6b95ff]"
+            class="fill-none stroke-[var(--primary)] [stroke-width:1.5] [stroke-linecap:round] [stroke-linejoin:round] opacity-0 transition-opacity duration-300"
             :class="{
               'opacity-100 [transition-delay:120ms]': layer.index === active,
             }"
