@@ -52,7 +52,9 @@ const serviceIcons = [Layers, Server, MonitorSmartphone, Settings2];
 
       <!-- Services grid -->
       <div class="w-full overflow-hidden rounded-2xl border">
-        <div class="grid grid-cols-1 gap-px bg-border sm:grid-cols-2">
+        <div
+          class="grid grid-cols-1 gap-px sm:grid-cols-2 divide-x divide-y divide-x-border divide-y-border"
+        >
           <motion.article
             v-for="(service, index) in SERVICES"
             :key="service.title"
@@ -60,7 +62,7 @@ const serviceIcons = [Layers, Server, MonitorSmartphone, Settings2];
             :while-in-view="{ opacity: 1, y: 0, filter: 'blur(0px)' }"
             :transition="{ duration: 0.55, delay: 0.12 * index }"
             :viewport="{ once: true }"
-            class="group relative min-h-[260px] overflow-hidden bg-background p-6 md:p-8"
+            class="group relative min-h-[260px] overflow-hidden p-6 md:p-8 bg-surface-glass"
           >
             <!-- Grid pattern decoration -->
             <div
