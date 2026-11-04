@@ -17,7 +17,6 @@ const serviceIcons = [Layers, Server, MonitorSmartphone, Settings2];
     <div
       class="relative container-wide flex flex-col items-start pt-28 pb-12 text-left lg:pt-32 lg:pb-20"
     >
-      <!-- Section introduction -->
       <motion.p
         :initial="{ opacity: 0, y: 10, filter: 'blur(10px)' }"
         :while-in-view="{ opacity: 1, y: 0, filter: 'blur(0px)' }"
@@ -50,7 +49,6 @@ const serviceIcons = [Layers, Server, MonitorSmartphone, Settings2];
         needs to thrive.
       </motion.p>
 
-      <!-- Services grid -->
       <div class="w-full overflow-hidden rounded-2xl border">
         <div
           class="grid grid-cols-1 gap-px sm:grid-cols-2 divide-x divide-y divide-x-border divide-y-border"

@@ -12,7 +12,6 @@ import Journey from "@/components/ui/journey.vue";
     <div
       class="relative container-wide flex flex-col items-start pt-28 pb-12 text-left lg:pt-32 lg:pb-20"
     >
-      <!-- Section introduction -->
       <motion.p
         :initial="{ opacity: 0, y: 10, filter: 'blur(10px)' }"
         :while-in-view="{ opacity: 1, y: 0, filter: 'blur(0px)' }"
@@ -45,7 +44,6 @@ import Journey from "@/components/ui/journey.vue";
         it.
       </motion.p>
 
-      <!-- Feature cards -->
       <div class="grid w-full grid-cols-1 gap-3 sm:grid-cols-2">
         <motion.article
           v-for="(feature, index) in WHY_CHOOSE_US_FEATURES"

@@ -1,103 +1,97 @@
 <script setup lang="ts">
+import Button from "@/components/ui/button.vue";
 import { motion } from "motion-v";
-import StatementHeading from "@/components/shared/statement-heading.vue";
-import ProductCard from "@/components/ui/product-card.vue";
+import { ArrowRight } from "@lucide/vue";
+import TiltedGrid from "@/components/ui/tilted-grid.vue";
+
+const images = [
+  {
+    src: "/features/home/solutions/solution-1.webp",
+    alt: "Solution 1",
+  },
+  {
+    src: "/features/home/solutions/solution-2.webp",
+    alt: "Solution 2",
+  },
+  {
+    src: "/features/home/solutions/solution-3.webp",
+    alt: "Solution 3",
+  },
+  {
+    src: "/features/home/solutions/solution-4.webp",
+    alt: "Solution 4",
+  },
+];
 </script>
 
 <template>
-  <div class="relative">
-    <img
-      loading="lazy"
-      fetchpriority="high"
-      src="/features/home/solutions-section-bg.webp"
-      alt=""
-      aria-hidden="true"
-      class="absolute inset-0 z-0 h-full w-full object-cover object-center"
-    />
-
+  <section class="relative z-[1] w-screen overflow-hidden">
     <div
-      class="absolute inset-0 z-[1] bg-[radial-gradient(circle,#050c148c_0%,#050c14e6_70%)]"
-    />
-
-    <section
-      :class="[
-        'container-narrow relative z-[2] text-white',
-        'max-md:py-5',
-        'py-10',
-      ]"
+      class="relative container-wide flex flex-col items-start sm:items-center text-left sm:text-center pt-28 pb-12 text-left lg:pt-32 lg:pb-20"
     >
-      <div
-        :class="[
-          'mb-6 flex items-center justify-between',
-          'max-md:mb-0 max-md:flex-col max-md:items-center',
-          'max-md:justify-start max-md:gap-3',
-        ]"
+      <motion.p
+        :initial="{ opacity: 0, y: 10, filter: 'blur(10px)' }"
+        :while-in-view="{ opacity: 1, y: 0, filter: 'blur(0px)' }"
+        :transition="{ duration: 0.6, delay: 0 }"
+        :viewport="{ once: true }"
+        class="mb-4 text-[10px] font-medium uppercase tracking-[0.28em] text-primary"
       >
-        <div class="max-w-1/2 max-md:max-w-full">
-          <StatementHeading
-            brand="OUR SOLUTIONS"
-            statement="Delivering scalable digital solutions that support operational excellence"
-            align="left"
-          />
-        </div>
+        OUR SOLUTIONS
+      </motion.p>
 
-        <div
-          :class="[
-            'relative z-[5] max-w-[23%] leading-loose',
-            'max-md:mb-8 max-md:max-w-full',
-          ]"
-        >
-          <motion.p
-            :initial="{ opacity: 0 }"
-            :whileInView="{ opacity: 1 }"
-            :transition="{ duration: 1, delay: 1 }"
-            :in-view-options="{ once: true, amount: 0.2 }"
-            class="max-md:w-full max-md:text-xs max-md:font-normal max-md:leading-relaxed max-md:tracking-normal"
-          >
-            Our products are developed to help organizations streamline
-            processes, enhance efficiency, and adopt modern digital
-            capabilities.
-          </motion.p>
-        </div>
-      </div>
+      <motion.h2
+        :initial="{ opacity: 0, y: 10, filter: 'blur(10px)' }"
+        :while-in-view="{ opacity: 1, y: 0, filter: 'blur(0px)' }"
+        :transition="{ duration: 0.6, delay: 0.2 }"
+        :viewport="{ once: true }"
+        class="mb-4 max-w-2xl text-3xl font-medium leading-[1.2] tracking-tight md:text-4xl lg:text-5xl"
+      >
+        Delivering Scalable Digital Solutions That Support Operational
+        Excellence
+      </motion.h2>
+
+      <motion.p
+        :initial="{ opacity: 0, y: 10, filter: 'blur(10px)' }"
+        :while-in-view="{ opacity: 1, y: 0, filter: 'blur(0px)' }"
+        :transition="{ duration: 0.6, delay: 0.4 }"
+        :viewport="{ once: true }"
+        class="mb-8 w-full max-w-xl text-base text-muted-foreground max-sm:text-sm max-sm:leading-relaxed sm:mb-12"
+      >
+        Our products are developed to help organizations streamline processes,
+        enhance efficiency, and adopt modern digital capabilities.
+      </motion.p>
 
       <motion.div
-        class="relative z-[5] grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-12"
-        :initial="{ opacity: 0 }"
-        :whileInView="{ opacity: 1 }"
-        :transition="{ duration: 1, delay: 1.5 }"
-        :in-view-options="{ once: true, amount: 0.2 }"
+        class="w-full"
+        :initial="{ opacity: 0, y: 10, filter: 'blur(10px)' }"
+        :while-in-view="{ opacity: 1, y: 0, filter: 'blur(0px)' }"
+        :transition="{ duration: 0.6, delay: 0.6 }"
+        :viewport="{ once: true }"
       >
-        <RouterLink to="/products/seamless-passenger">
-          <ProductCard
-            :badges="['Software']"
-            image="/features/home/solutions/seamless-passenger.webp"
-            title="Seamless Passenger"
-          />
-        </RouterLink>
-
-        <RouterLink to="/products/passport-issuance">
-          <ProductCard
-            :badges="['Software']"
-            image="/features/home/solutions/passport-issuance.webp"
-            title="Passport Issuance"
-          />
-        </RouterLink>
+        <TiltedGrid
+          :images="images"
+          :speed="8"
+          :tile-height="38"
+          :aspect-ratio="4 / 3"
+          :gap="12"
+          :axis="50"
+          :curve="80"
+          :fade="12"
+          class="w-full h-120"
+        />
       </motion.div>
 
-      <RouterLink
-        to="/products"
-        class="relative z-[3] mt-6 inline-block text-primary no-underline"
+      <motion.div
+        :initial="{ opacity: 0, y: 10, filter: 'blur(10px)' }"
+        :while-in-view="{ opacity: 1, y: 0, filter: 'blur(0px)' }"
+        :transition="{ duration: 0.6, delay: 0.2 }"
+        :viewport="{ once: true }"
       >
-        <motion.span
-          :initial="{ opacity: 0 }"
-          :whileInView="{ opacity: 1 }"
-          :transition="{ duration: 1, delay: 0.7 }"
-          :in-view-options="{ once: true, amount: 0.2 }"
-        >
-          View More →
-        </motion.span>
-      </RouterLink>
-    </section>
-  </div>
+        <Button variant="outline">
+          View All Solutions
+          <ArrowRight class="size-4" />
+        </Button>
+      </motion.div>
+    </div>
+  </section>
 </template>
