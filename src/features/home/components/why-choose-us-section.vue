@@ -341,7 +341,26 @@ import LayerStack from "@/components/ui/layer-stack.vue";
             </div>
 
             <!-- Integrated End-to-End Support Illustration -->
-            <template v-else> </template>
+            <div
+              v-else
+              class="relative w-full h-full flex items-center justify-center overflow-hidden rounded-t-2xl"
+            >
+              <!-- Background decoration -->
+              <div
+                class="absolute -left-12 -top-12 h-40 w-40 rounded-full bg-primary/10 blur-3xl"
+              />
+
+              <div
+                class="absolute -bottom-12 -right-12 h-40 w-40 rounded-full bg-primary/10 blur-3xl"
+              />
+
+              <!-- Main -->
+              <img
+                src="/features/home/why-choose-us/end-to-end-support.png"
+                alt="Illustration of integrated end to end support"
+                class="w-[calc(100%-100px)] opacity-90"
+              />
+            </div>
           </div>
 
           <div class="relative z-10 mt-auto p-5 md:p-7">
