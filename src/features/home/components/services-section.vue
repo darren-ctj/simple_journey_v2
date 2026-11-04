@@ -104,11 +104,11 @@ const serviceIcons = [Layers, Server, MonitorSmartphone, Settings2];
 
             <!-- Service icon -->
             <div
-              class="relative z-10 flex size-11 items-center justify-center rounded-xl border bg-surface-glass text-foreground/75 transition-all duration-300 group-hover:border-primary/30 group-hover:bg-primary/10 group-hover:text-primary"
+              class="relative z-10 flex size-12 items-center justify-center rounded-sm border bg-surface-glass text-foreground/75 transition-all duration-300 group-hover:border-primary/30 group-hover:bg-primary/10 group-hover:text-primary"
             >
               <component
                 :is="serviceIcons[index]"
-                class="size-5"
+                class="size-7"
                 :stroke-width="1.7"
               />
             </div>
@@ -117,7 +117,7 @@ const serviceIcons = [Layers, Server, MonitorSmartphone, Settings2];
             <div class="relative z-10 mt-10">
               <div class="mb-3 flex items-center justify-between">
                 <span
-                  class="font-mono text-[10px] tracking-[0.16em] text-muted-foreground/70"
+                  class="font-mono text-xs tracking-[0.16em] text-muted-foreground/70"
                 >
                   {{ String(index + 1).padStart(2, "0") }}
                 </span>
