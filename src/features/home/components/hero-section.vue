@@ -9,10 +9,10 @@ import CountUp from "@/components/ui/count-up.vue";
 </script>
 
 <template>
-  <div class="relative z-[1] w-screen">
+  <div class="relative z-[2] w-screen">
     <!-- Background Video -->
     <div class="absolute z-0 left-0 bottom-0 w-full h-full">
-      <div class="w-full h-[30%] bg-background" />
+      <div class="w-full h-[30%] bg-[#0f0f16]" />
 
       <video
         class="w-full h-[70%] object-cover [mask-image:linear-gradient(to_bottom,black,black_80%,transparent)]"
@@ -161,8 +161,9 @@ import CountUp from "@/components/ui/count-up.vue";
         <div
           class="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight"
         >
-          <CountUp :to="12" />+
+          <CountUp :to="12" class="text-gradient" />+
         </div>
+
         <p class="text-xs md:text-sm text-muted-foreground">
           Successful Products
         </p>
@@ -172,8 +173,9 @@ import CountUp from "@/components/ui/count-up.vue";
         <div
           class="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight"
         >
-          <CountUp :to="10" />+
+          <CountUp :to="10" class="text-gradient" />+
         </div>
+
         <p class="text-xs md:text-sm text-muted-foreground">Happy Customers</p>
       </div>
 
@@ -181,8 +183,9 @@ import CountUp from "@/components/ui/count-up.vue";
         <div
           class="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight"
         >
-          <CountUp :to="8" />+
+          <CountUp :to="8" class="text-gradient" />+
         </div>
+
         <p class="text-xs md:text-sm text-muted-foreground">
           Years of Experience
         </p>

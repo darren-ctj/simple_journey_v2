@@ -8,6 +8,7 @@
   --font-heading: "Geist", "DM Sans", ui-sans-serif, system-ui, sans-serif;
 
   --color-background: var(--background);
+  --color-background-light: var(--background-light);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
   --color-card-foreground: var(--card-foreground);
@@ -89,7 +90,8 @@
   --secondary: #0c1b2e;
   --secondary-foreground: #dceaff;
 
-  --background: #0f0f16;
+  --background: #05070c;
+  --background-light: #050d1c;
   --foreground: #f2f7ff;
 
   --muted: #0b1727;
@@ -139,6 +141,15 @@
 
 @utility container-wide {
   @apply w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-10 lg:px-12;
+}
+
+/* Text Utilities */
+@utility text-gradient {
+  background: linear-gradient(to bottom, #ffffff 0%, #e2e8f0 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
 }
 
 /* Background Utilities */

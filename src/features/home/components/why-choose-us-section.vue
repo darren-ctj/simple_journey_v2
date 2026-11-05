@@ -12,6 +12,11 @@ import Journey from "@/components/ui/journey.vue";
     <div
       class="relative container-wide flex flex-col items-start pt-28 pb-12 text-left lg:pt-32 lg:pb-20"
     >
+      <!-- <div
+        class="pointer-events-none absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2 h-200 w-700 rounded-full opacity-20 blur-[100px]"
+        style="background: radial-gradient(circle, #1e88ff 0%, transparent 30%)"
+      /> -->
+
       <motion.p
         :initial="{ opacity: 0, y: 10, filter: 'blur(10px)' }"
         :while-in-view="{ opacity: 1, y: 0, filter: 'blur(0px)' }"
@@ -44,7 +49,40 @@ import Journey from "@/components/ui/journey.vue";
         it.
       </motion.p>
 
-      <div class="grid w-full grid-cols-1 gap-3 sm:grid-cols-2">
+      <div class="relative grid w-full grid-cols-1 gap-3 sm:grid-cols-2">
+        <!-- Top center -->
+        <div
+          class="pointer-events-none absolute -top-40 left-1/2 h-125 w-125 -translate-x-1/2 rounded-full opacity-20 blur-[100px]"
+          style="
+            background: radial-gradient(circle, #1e88ff 0%, transparent 65%);
+          "
+        />
+
+        <!-- Center left -->
+        <div
+          class="pointer-events-none absolute top-1/2 -left-40 h-125 w-125 -translate-y-1/2 rounded-full opacity-20 blur-[100px]"
+          style="
+            background: radial-gradient(circle, #1e88ff 0%, transparent 65%);
+          "
+        />
+
+        <!-- Center right -->
+        <div
+          class="pointer-events-none absolute top-1/2 -right-40 h-125 w-125 -translate-y-1/2 rounded-full opacity-20 blur-[100px]"
+          style="
+            background: radial-gradient(circle, #1e88ff 0%, transparent 65%);
+          "
+        />
+
+        <!-- Bottom center -->
+        <div
+          class="pointer-events-none absolute -bottom-40 left-1/2 h-125 w-125 -translate-x-1/2 rounded-full opacity-20 blur-[100px]"
+          style="
+            background: radial-gradient(circle, #1e88ff 0%, transparent 65%);
+          "
+        />
+
+        <!-- Content -->
         <motion.article
           v-for="(feature, index) in WHY_CHOOSE_US_FEATURES"
           :key="feature.number"
@@ -65,10 +103,6 @@ import Journey from "@/components/ui/journey.vue";
               <!-- Background decoration -->
               <div
                 class="absolute -right-12 -top-12 h-40 w-40 rounded-full bg-primary/10 blur-3xl"
-              />
-
-              <div
-                class="absolute -bottom-12 -left-12 h-40 w-40 rounded-full bg-primary/10 blur-3xl"
               />
 
               <!-- Main -->
@@ -221,10 +255,6 @@ import Journey from "@/components/ui/journey.vue";
                 class="absolute -left-12 -top-12 h-40 w-40 rounded-full bg-primary/10 blur-3xl"
               />
 
-              <div
-                class="absolute -bottom-12 -right-12 h-40 w-40 rounded-full bg-primary/10 blur-3xl"
-              />
-
               <!-- Main -->
               <div class="**:fill-foreground relative mx-auto size-80">
                 <div
@@ -328,11 +358,7 @@ import Journey from "@/components/ui/journey.vue";
             >
               <!-- Background decoration -->
               <div
-                class="absolute -right-12 -top-12 h-40 w-40 rounded-full bg-primary/10 blur-3xl"
-              />
-
-              <div
-                class="absolute -bottom-12 -left-12 h-40 w-40 rounded-full bg-primary/10 blur-3xl"
+                class="absolute -bottom-12 -right-12 h-40 w-40 rounded-full bg-primary/10 blur-3xl"
               />
 
               <!-- Main -->
@@ -346,11 +372,7 @@ import Journey from "@/components/ui/journey.vue";
             >
               <!-- Background decoration -->
               <div
-                class="absolute -left-12 -top-12 h-40 w-40 rounded-full bg-primary/10 blur-3xl"
-              />
-
-              <div
-                class="absolute -bottom-12 -right-12 h-40 w-40 rounded-full bg-primary/10 blur-3xl"
+                class="absolute -bottom-12 -left-12 h-40 w-40 rounded-full bg-primary/10 blur-3xl"
               />
 
               <!-- Main -->

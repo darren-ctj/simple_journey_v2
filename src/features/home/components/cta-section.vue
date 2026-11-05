@@ -7,7 +7,7 @@ import { motion } from "motion-v";
 
 <template>
   <section
-    class="relative z-[1] w-screen overflow-hidden px-4 sm:px-6 md:px-10 lg:px-12 py-20"
+    class="relative z-[1] w-screen overflow-hidden px-4 sm:px-6 md:px-10 lg:px-12 py-20 bg-background-light"
   >
     <motion.div
       :initial="{ opacity: 0, y: 10, filter: 'blur(10px)' }"

@@ -983,15 +983,20 @@ function onPointerDown(event: PointerEvent) {
 
 function finishPointer(event: PointerEvent, cancelled: boolean) {
   const p = ptr.value;
+
   if (p.id !== event.pointerId) return;
   const s = sim.value;
   const stage = stageRef.value;
+
   if (stage?.hasPointerCapture(event.pointerId))
     stage.releasePointerCapture(event.pointerId);
+
   ptr.value = { ...p, id: -1 };
+
   if (p.mode === "pull") {
     const i = s.pull;
     s.pull = -1;
+
     if (reduced.value) {
       s.st[i] = 0;
       s.vst[i] = 0;
@@ -1000,14 +1005,17 @@ function finishPointer(event: PointerEvent, cancelled: boolean) {
       s.beta[i] = 0;
       paint(i);
     } else kick();
+
     return;
   }
+
   if (p.mode === "drag") {
     s.drag = -1;
     s.free = performance.now() + 700;
     kick();
     return;
   }
+
   if (p.mode === "swipe") {
     const dx = event.clientX - p.x;
     const current = active.value ?? carouselIndex.value;
@@ -1045,15 +1053,19 @@ function onKeyDown(event: KeyboardEvent) {
     }
     return;
   }
+
   const badge = (event.target instanceof HTMLElement ? event.target : null)
     ?.dataset.badge;
+
   if (event.key === "ArrowDown") {
     if (badge === undefined) return;
     event.preventDefault();
     tug(Number(badge), 300);
     return;
   }
+
   if (!["ArrowRight", "ArrowLeft", "Home", "End"].includes(event.key)) return;
+
   event.preventDefault();
   const from = active.value ?? focusIndex.value;
   const next =
@@ -1074,19 +1086,23 @@ function onKeyDown(event: KeyboardEvent) {
 // Watchers
 watch([active, flipped], ([na, nf], [oa, of_]) => {
   const s = sim.value;
+
   for (let i = 0; i < TEAM_MEMBERS.length; i++) {
     s.tr[i] = nf === i ? 180 : na === i ? 0 : (REST_Y[i % REST_Y.length] ?? 0);
     s.tz[i] = nf === i || na === i ? 0 : (REST_Z[i % REST_Z.length] ?? 0);
     s.tl[i] = nf === i || na === i ? 1 : 0;
     s.tp[i] = nf === i ? 1 : 0;
   }
+
   if (isCarousel.value) {
     syncTargets();
   }
+
   const wrap = (i: number) =>
     cyclic.value
       ? ((i % TEAM_MEMBERS.length) + TEAM_MEMBERS.length) % TEAM_MEMBERS.length
       : i;
+
   if (oa !== na) {
     if (na !== null) {
       impulse(wrap(na - 1), 16);
@@ -1097,6 +1113,7 @@ watch([active, flipped], ([na, nf], [oa, of_]) => {
       impulse(wrap(oa + 1), 6);
     }
   }
+
   if (of_ !== nf) {
     if (nf !== null) {
       impulse(nf, nf % 2 ? 9 : -9);
@@ -1122,35 +1139,48 @@ function measureStage(width: number) {
     MAX_W,
     (width - 40) / (Math.max(1, TEAM_MEMBERS.length) * RAIL_PITCH_MIN + 0.4),
   );
+
   const carousel = railW < MIN_RAIL_W;
+
   const W =
     Math.round((carousel ? clamp(width * 0.3, 96, 118) : railW) * 4) / 4;
+
   const fresh =
     stageWidth.value === 0 ||
     isCarousel.value !== carousel ||
     stageW.value !== W;
+
   stageWidth.value = width;
   isCarousel.value = carousel;
   stageW.value = W;
+
   updateLayout(fresh);
 }
 
 onMounted(async () => {
   const media = window.matchMedia("(prefers-reduced-motion: reduce)");
+
   reduced.value = media.matches;
+
   media.addEventListener("change", () => {
     reduced.value = media.matches;
   });
+
   await nextTick();
+
   const stage = stageRef.value;
+
   if (stage) {
     measureStage(stage.clientWidth);
+
     resizeObs = new ResizeObserver((entries) => {
       const b = entries[0];
       if (b) measureStage(b.contentRect.width);
     });
+
     resizeObs.observe(stage);
   }
+
   if (!swayed.value && !reduced.value) {
     for (let i = 0; i < TEAM_MEMBERS.length; i++)
       window.setTimeout(
@@ -1174,22 +1204,12 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <section class="relative z-[1] w-screen overflow-hidden">
+  <section
+    class="relative z-[1] w-screen bg-gradient-to-t from-background-light via-background-light to-background overflow-hidden"
+  >
     <div
-      class="relative container-wide flex flex-col items-start text-left pt-28 pb-12 lg:pt-32 lg:pb-20"
+      class="relative container-wide flex flex-col items-start text-left pt-28 pb-12 lg:pt-32 lg:pb-20 bg-transparent"
     >
-      <!-- <div
-        class="pointer-events-none absolute top-0 right-0 -z-[1] h-[720px] w-[720px] translate-x-1/4 -translate-y-1/2 rounded-full opacity-17 blur-[100px]"
-        style="
-          background: radial-gradient(
-            circle,
-            #1e88ff 0%,
-            rgba(30, 136, 255, 0.5) 35%,
-            transparent 70%
-          );
-        "
-      /> -->
-
       <motion.p
         :initial="{ opacity: 0, y: 10, filter: 'blur(10px)' }"
         :while-in-view="{ opacity: 1, y: 0, filter: 'blur(0px)' }"

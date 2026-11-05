@@ -13,7 +13,7 @@ const serviceIcons = [Layers, Server, MonitorSmartphone, Settings2];
 </script>
 
 <template>
-  <section class="relative z-[1] w-screen overflow-hidden">
+  <section class="relative z-[1] w-screen overflow-hidden bg-[#050D1C]">
     <div
       class="relative container-wide flex flex-col items-start pt-28 pb-12 text-left lg:pt-32 lg:pb-20"
     >
@@ -60,7 +60,7 @@ const serviceIcons = [Layers, Server, MonitorSmartphone, Settings2];
             :while-in-view="{ opacity: 1, y: 0, filter: 'blur(0px)' }"
             :transition="{ duration: 0.55, delay: 0.12 * index }"
             :viewport="{ once: true }"
-            class="group relative min-h-[260px] overflow-hidden p-6 md:p-8 bg-surface-glass"
+            class="group relative min-h-[260px] overflow-hidden p-6 md:p-8 bg-card"
           >
             <!-- Grid pattern decoration -->
             <div
