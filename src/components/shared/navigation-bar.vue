@@ -4,7 +4,7 @@ import { useRoute } from "vue-router";
 import Button from "../ui/button.vue";
 import { useScrolled } from "@/composables/use-scrolled";
 import { MENU_ITEMS } from "@/constants/menu.ts";
-import { ArrowRight } from "@lucide/vue";
+import { ArrowRight, Menu, X } from "@lucide/vue";
 import ShinyWrapper from "../ui/shiny-wrapper.vue";
 
 const route = useRoute();
@@ -63,38 +63,21 @@ function handleNavigationClick() {
         </li>
       </ul>
 
-      <!-- <ShinyWrapper class="hidden lg:block rounded-full"> -->
       <RouterLink to="/" class="hidden lg:block">
         <Button variant="outline">
           Get Started
           <ArrowRight class="size-4" />
         </Button>
       </RouterLink>
-      <!-- </ShinyWrapper> -->
 
       <button
         type="button"
         aria-label="Toggle menu"
         :aria-expanded="isMobileMenuOpen"
-        class="flex cursor-pointer flex-col gap-1 border-none bg-transparent px-1.5 py-0.5 lg:hidden"
+        class="cursor-pointer border-none text-foreground bg-transparent px-1.5 py-0.5 lg:hidden opacity-90"
         @click="handleMenuToggle"
       >
-        <span
-          class="h-px w-5 bg-white transition-all duration-300"
-          :class="isMobileMenuOpen ? 'translate-y-[5px] rotate-45' : ''"
-        />
-        <span
-          class="h-px w-5 bg-white transition-all duration-300"
-          :class="{ 'opacity-0': isMobileMenuOpen }"
-        />
-        <span
-          class="h-px w-5 bg-white transition-all duration-300"
-          :class="{ 'opacity-0': isMobileMenuOpen }"
-        />
-        <span
-          class="h-px w-5 bg-white transition-all duration-300"
-          :class="isMobileMenuOpen ? '-translate-y-[5px] -rotate-45' : ''"
-        />
+        <Menu />
       </button>
     </nav>
 
@@ -113,17 +96,10 @@ function handleNavigationClick() {
         <button
           type="button"
           aria-label="Close menu"
-          class="absolute right-[5%] top-[3%] flex cursor-pointer flex-col gap-1 border-none bg-transparent p-1"
+          class="absolute right-[5%] top-[3%] cursor-pointer border-none bg-transparent p-1 opacity-90"
           @click="handleMenuToggle"
         >
-          <span
-            class="h-px w-5 translate-x-1.5 translate-y-[9px] rotate-45 bg-white"
-          />
-          <span class="h-px w-5 opacity-0" />
-          <span class="h-px w-5 opacity-0" />
-          <span
-            class="h-px w-5 translate-x-1.5 -translate-y-1.5 -rotate-45 bg-white"
-          />
+          <X />
         </button>
 
         <div class="flex flex-col items-center gap-9">

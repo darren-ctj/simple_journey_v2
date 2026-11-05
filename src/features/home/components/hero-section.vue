@@ -155,10 +155,12 @@ import CountUp from "@/components/ui/count-up.vue";
 
     <!-- Statistics Card -->
     <div
-      class="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-[calc(100%-2rem)] max-w-3xl bg-surface-glass backdrop-blur-lg border rounded-2xl p-6 md:p-8 grid grid-cols-3 gap-4"
+      class="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-[calc(100%-2rem)] max-w-3xl bg-surface-glass backdrop-blur-lg border rounded-2xl p-4.5 sm:p-6 md:p-8 grid grid-cols-3 gap-4 divide-x"
     >
       <div class="flex flex-col items-center text-center gap-1">
-        <div class="text-3xl md:text-4xl font-semibold tracking-tight">
+        <div
+          class="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight"
+        >
           <CountUp :to="12" />+
         </div>
         <p class="text-xs md:text-sm text-muted-foreground">
@@ -167,14 +169,18 @@ import CountUp from "@/components/ui/count-up.vue";
       </div>
 
       <div class="flex flex-col items-center text-center gap-1">
-        <div class="text-3xl md:text-4xl font-semibold tracking-tight">
+        <div
+          class="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight"
+        >
           <CountUp :to="10" />+
         </div>
         <p class="text-xs md:text-sm text-muted-foreground">Happy Customers</p>
       </div>
 
       <div class="flex flex-col items-center text-center gap-1">
-        <div class="text-3xl md:text-4xl font-semibold tracking-tight">
+        <div
+          class="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight"
+        >
           <CountUp :to="8" />+
         </div>
         <p class="text-xs md:text-sm text-muted-foreground">
