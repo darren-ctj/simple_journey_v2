@@ -1,5 +1,15 @@
 <script setup lang="ts">
+import { computed } from "vue";
 import { motion } from "motion-v";
+import {
+  TESTIMONIALS,
+  TESTIMONIAL_DELAYS,
+  TESTIMONIAL_DURATIONS,
+} from "../constants/testimonials";
+import TestimonialCard from "./testimonial-card.vue";
+import Marquee from "@/components/ui/marquee.vue";
+
+const MOBILE_TESTIMONIALS = computed(() => TESTIMONIALS.flat());
 </script>
 
 <template>
@@ -34,9 +44,54 @@ import { motion } from "motion-v";
         :viewport="{ once: true }"
         class="mb-8 w-full max-w-xl text-base text-muted-foreground max-sm:text-sm max-sm:leading-relaxed sm:mb-12"
       >
-        Hear from the people who have experienced the difference and discover
-        why they trust us.
+        Take a moment to hear from the individuals who have experienced the
+        unique difference we make, and discover why they trust us with their
+        most important needs.
       </motion.p>
+
+      <motion.div
+        :initial="{ opacity: 0, y: 10, filter: 'blur(10px)' }"
+        :while-in-view="{ opacity: 1, y: 0, filter: 'blur(0px)' }"
+        :transition="{ duration: 0.6, delay: 0.4 }"
+        :viewport="{ once: true }"
+        class="relative h-150 overflow-hidden"
+      >
+        <div class="h-full md:hidden">
+          <Marquee
+            vertical
+            :repeat="3"
+            :pause-on-hover="true"
+            delay="0s"
+            duration="35s"
+            class="h-full"
+          >
+            <TestimonialCard
+              v-for="(item, index) in MOBILE_TESTIMONIALS"
+              :key="index"
+              v-bind="item"
+            />
+          </Marquee>
+        </div>
+
+        <div class="hidden h-full grid-cols-3 gap-2 md:grid">
+          <Marquee
+            v-for="(items, index) in TESTIMONIALS"
+            :key="index"
+            vertical
+            :repeat="3"
+            :pause-on-hover="true"
+            :delay="TESTIMONIAL_DELAYS[index]"
+            :duration="TESTIMONIAL_DURATIONS[index]"
+            class="h-full"
+          >
+            <TestimonialCard
+              v-for="(item, itemIndex) in items"
+              :key="itemIndex"
+              v-bind="item"
+            />
+          </Marquee>
+        </div>
+      </motion.div>
     </div>
   </section>
 </template>
