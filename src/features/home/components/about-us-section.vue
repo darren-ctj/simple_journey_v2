@@ -1210,6 +1210,21 @@ onBeforeUnmount(() => {
     <div
       class="relative container-wide flex flex-col items-start text-left pt-28 pb-12 lg:pt-32 lg:pb-20 bg-transparent"
     >
+      <video
+        class="absolute left-0 top-0 w-full h-full object-cover [mask-image:radial-gradient(ellipse_at_top_right,black_0%,black_20%,transparent_50%)] [-webkit-mask-image:radial-gradient(ellipse_at_top_right,black_0%,black_20%,transparent_50%)]"
+        autoplay
+        loop
+        muted
+        playsinline
+        preload="auto"
+      >
+        <source
+          src="/features/home/about-us/about-us-section-bg.webm"
+          type="video/webm"
+        />
+        Your browser does not support the video tag.
+      </video>
+
       <motion.p
         :initial="{ opacity: 0, y: 10, filter: 'blur(10px)' }"
         :while-in-view="{ opacity: 1, y: 0, filter: 'blur(0px)' }"

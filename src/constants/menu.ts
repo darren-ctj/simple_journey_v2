@@ -4,6 +4,6 @@ export const MENU_ITEMS: MenuItem[] = [
   { label: "Home", to: "/" },
   { label: "Services", to: "/services" },
   { label: "Products", to: "/products" },
-  { label: "About", to: "/about" },
-  { label: "Career", to: "/career" },
+  { label: "About Us", to: "/about-us" },
+  { label: "Careers", to: "/careers" },
 ];

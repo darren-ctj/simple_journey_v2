@@ -17,10 +17,6 @@ const images = [
     src: "/features/home/solutions/solution-3.webp",
     alt: "Solution 3",
   },
-  {
-    src: "/features/home/solutions/solution-4.webp",
-    alt: "Solution 4",
-  },
 ];
 </script>
 
@@ -29,37 +25,55 @@ const images = [
     <div
       class="relative container-wide flex flex-col items-start sm:items-center text-left sm:text-center pt-28 pb-12 text-left lg:pt-32 lg:pb-20"
     >
-      <motion.p
-        :initial="{ opacity: 0, y: 10, filter: 'blur(10px)' }"
-        :while-in-view="{ opacity: 1, y: 0, filter: 'blur(0px)' }"
-        :transition="{ duration: 0.6, delay: 0 }"
-        :viewport="{ once: true }"
-        class="mb-4 text-[10px] font-medium uppercase tracking-[0.28em] text-primary"
+      <video
+        class="absolute left-0 top-0 w-full h-full object-cover opacity-80 [mask-image:linear-gradient(to_bottom,transparent_0%,black_20%,black_80%,transparent_100%),linear-gradient(to_right,transparent_0%,black_15%,black_85%,transparent_100%)] [mask-composite:intersect] [-webkit-mask-image:linear-gradient(to_bottom,transparent_0%,black_20%,black_80%,transparent_100%),linear-gradient(to_right,transparent_0%,black_15%,black_85%,transparent_100%)] [-webkit-mask-composite:source-in]"
+        autoplay
+        loop
+        muted
+        playsinline
+        preload="auto"
       >
-        OUR SOLUTIONS
-      </motion.p>
+        <source
+          src="/features/home/solutions/solutions-section-bg.webm"
+          type="video/webm"
+        />
+      </video>
 
-      <motion.h2
-        :initial="{ opacity: 0, y: 10, filter: 'blur(10px)' }"
-        :while-in-view="{ opacity: 1, y: 0, filter: 'blur(0px)' }"
-        :transition="{ duration: 0.6, delay: 0.2 }"
-        :viewport="{ once: true }"
-        class="mb-4 max-w-2xl text-3xl font-medium leading-[1.2] tracking-tight md:text-4xl lg:text-5xl"
+      <div
+        class="pt-8 bg-background/8 backdrop-blur-md [mask-image:linear-gradient(to_bottom,transparent_0%,black_10%,black_90%,transparent_100%),linear-gradient(to_right,transparent_0%,black_10%,black_95%,transparent_100%)] [mask-composite:intersect] [-webkit-mask-image:linear-gradient(to_bottom,transparent_0%,black_5%,black_95%,transparent_100%),linear-gradient(to_right,transparent_0%,black_10%,black_95%,transparent_100%)] [-webkit-mask-composite:source-in]"
       >
-        Delivering Scalable Digital Solutions That Support Operational
-        Excellence
-      </motion.h2>
+        <motion.p
+          :initial="{ opacity: 0, y: 10, filter: 'blur(10px)' }"
+          :while-in-view="{ opacity: 1, y: 0, filter: 'blur(0px)' }"
+          :transition="{ duration: 0.6, delay: 0 }"
+          :viewport="{ once: true }"
+          class="mb-4 text-[10px] font-medium uppercase tracking-[0.28em] text-primary"
+        >
+          OUR SOLUTIONS
+        </motion.p>
 
-      <motion.p
-        :initial="{ opacity: 0, y: 10, filter: 'blur(10px)' }"
-        :while-in-view="{ opacity: 1, y: 0, filter: 'blur(0px)' }"
-        :transition="{ duration: 0.6, delay: 0.4 }"
-        :viewport="{ once: true }"
-        class="mb-8 w-full max-w-xl text-base text-muted-foreground max-sm:text-sm max-sm:leading-relaxed sm:mb-12"
-      >
-        Our products are developed to help organizations streamline processes,
-        enhance efficiency, and adopt modern digital capabilities.
-      </motion.p>
+        <motion.h2
+          :initial="{ opacity: 0, y: 10, filter: 'blur(10px)' }"
+          :while-in-view="{ opacity: 1, y: 0, filter: 'blur(0px)' }"
+          :transition="{ duration: 0.6, delay: 0.2 }"
+          :viewport="{ once: true }"
+          class="mb-4 max-w-2xl text-3xl font-medium leading-[1.2] tracking-tight md:text-4xl lg:text-5xl"
+        >
+          Delivering Scalable Digital Solutions That Support Operational
+          Excellence
+        </motion.h2>
+
+        <motion.p
+          :initial="{ opacity: 0, y: 10, filter: 'blur(10px)' }"
+          :while-in-view="{ opacity: 1, y: 0, filter: 'blur(0px)' }"
+          :transition="{ duration: 0.6, delay: 0.4 }"
+          :viewport="{ once: true }"
+          class="mb-8 w-full max-w-xl text-base text-muted-foreground max-sm:text-sm max-sm:leading-relaxed sm:mb-12"
+        >
+          Our products are developed to help organizations streamline processes,
+          enhance efficiency, and adopt modern digital capabilities.
+        </motion.p>
+      </div>
 
       <motion.div
         class="w-full"

@@ -22,7 +22,10 @@ import CountUp from "@/components/ui/count-up.vue";
         playsinline
         preload="auto"
       >
-        <source src="/features/home/hero-section-bg.webm" type="video/webm" />
+        <source
+          src="/features/home/hero/hero-section-bg.webm"
+          type="video/webm"
+        />
         Your browser does not support the video tag.
       </video>
     </div>
@@ -30,7 +33,7 @@ import CountUp from "@/components/ui/count-up.vue";
     <!-- Background Image -->
     <div class="absolute z-[1] left-0 top-0 w-full h-[70%]">
       <img
-        src="/features/home/hero-section-bg.webp"
+        src="/features/home/hero/hero-section-bg.webp"
         alt="Background Image"
         class="w-full h-full object-cover opacity-20"
         :style="{

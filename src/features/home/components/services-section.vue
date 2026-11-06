@@ -13,10 +13,25 @@ const serviceIcons = [Layers, Server, MonitorSmartphone, Settings2];
 </script>
 
 <template>
-  <section class="relative z-[1] w-screen overflow-hidden bg-[#050D1C]">
+  <section class="relative z-[1] w-screen overflow-hidden bg-background-light">
     <div
       class="relative container-wide flex flex-col items-start pt-28 pb-12 text-left lg:pt-32 lg:pb-20"
     >
+      <video
+        class="absolute right-4 sm:right-6 md:right-10 lg:right-12 top-20 lg:top-22 w-2/3 h-2/3 hidden sm:block object-cover [mask-image:linear-gradient(to_bottom,transparent_0%,black_15%,black_85%,transparent_100%),linear-gradient(to_left,transparent_0%,black_15%,black_100%),radial-gradient(ellipse_at_top_right,black_0%,black_20%,transparent_45%)] [mask-composite:intersect] [-webkit-mask-image:linear-gradient(to_bottom,transparent_0%,black_15%,black_85%,transparent_100%),linear-gradient(to_left,transparent_0%,black_15%,black_100%),radial-gradient(ellipse_at_top_right,black_0%,black_20%,transparent_45%)] [-webkit-mask-composite:source-in]"
+        autoplay
+        loop
+        muted
+        playsinline
+        preload="auto"
+      >
+        <source
+          src="/features/home/services/services-section-bg.webm"
+          type="video/webm"
+        />
+        Your browser does not support the video tag.
+      </video>
+
       <motion.p
         :initial="{ opacity: 0, y: 10, filter: 'blur(10px)' }"
         :while-in-view="{ opacity: 1, y: 0, filter: 'blur(0px)' }"

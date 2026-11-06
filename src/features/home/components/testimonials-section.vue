@@ -15,6 +15,11 @@ const MOBILE_TESTIMONIALS = computed(() => TESTIMONIALS.flat());
 <template>
   <section class="relative z-[1] w-screen overflow-hidden">
     <div
+      class="pointer-events-none absolute top-0 left-1/2 size-225 -translate-x-1/2 -translate-y-1/2 rounded-full opacity-20 blur-[100px]"
+      style="background: radial-gradient(circle, #1e88ff 0%, transparent 65%)"
+    />
+
+    <div
       class="relative container-wide flex flex-col items-start sm:items-center text-left sm:text-center pt-28 pb-12 text-left lg:pt-32 lg:pb-20"
     >
       <motion.p
@@ -93,5 +98,19 @@ const MOBILE_TESTIMONIALS = computed(() => TESTIMONIALS.flat());
         </div>
       </motion.div>
     </div>
+
+    <video
+      class="absolute left-0 bottom-0 w-full h-2/5 object-cover opacity-60 [mask-image:linear-gradient(to_bottom,transparent_0%,black_20%,black_80%,transparent_100%),linear-gradient(to_right,transparent_0%,black_15%,black_85%,transparent_100%)] [mask-composite:intersect] [-webkit-mask-image:linear-gradient(to_bottom,transparent_0%,black_20%,black_80%,transparent_100%),linear-gradient(to_right,transparent_0%,black_15%,black_85%,transparent_100%)] [-webkit-mask-composite:source-in]"
+      autoplay
+      loop
+      muted
+      playsinline
+      preload="auto"
+    >
+      <source
+        src="/features/home/testimonials/testimonials-section-bg.webm"
+        type="video/webm"
+      />
+    </video>
   </section>
 </template>
