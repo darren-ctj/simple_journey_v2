@@ -1,4 +1,4 @@
-# Simple Journey Indonesia Website Rebuild (V2)
+# Simple Journey Indonesia Website Home Page Rebuild (V2)
 
 ![Home Page](docs/home.png)
 
@@ -167,18 +167,16 @@ Review the build status and logs under **Console Output**.
 
 ## Overview
 
-The application includes the following pages:
+The home page redesign includes the following sections:
 
-| Page               | Preview                                         |
-| ------------------ | ----------------------------------------------- |
-| **Home**           | ![Home Page](docs/home.png)                     |
-| **Services**       | ![Services Page](docs/services.png)             |
-| **Products**       | ![Products Page](docs/products.png)             |
-| **Product Detail** | ![Product Detail Page](docs/product-detail.png) |
-| **Career**         | ![Career Page](docs/career.png)                 |
-| **Career Detail**  | ![Career Detail Page](docs/career-detail.png)   |
-| **Contact**        | ![Contact Page](docs/contact.png)               |
-| **About**          | ![About Page](docs/about.png)                   |
+| Section              | Before                                                 | After                                                      |
+| -------------------- | ------------------------------------------------------ | ---------------------------------------------------------- |
+| **Hero**             | ![Hero Before](docs/before/hero.png)                   | ![Hero After](docs/after/hero.png)                         |
+| **About Us**         | ![About Us Before](docs/before/about-us.png)           | ![About Us After](docs/after/about-us.png)                 |
+| **Why Choose Us**    | ![Why Choose Us Before](docs/before/why-choose-us.png) | ![Why Choose Us After](docs/after/why-choose-us.png)       |
+| **Our Services**     | ![Our Services Before](docs/before/our-services.png)   | ![Our Services After](docs/after/our-services.png)         |
+| **Our Solutions**    | ![Our Solutions Before](docs/before/our-solutions.png) | ![Our Solutions After](docs/after/our-solutions.png)       |
+| **Our Testimonials** |                                                        | ![Our Testimonials After](docs/after/our-testimonials.png) |
 
 ## Tech Stack
 
