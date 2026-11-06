@@ -123,6 +123,8 @@ import Journey from "@/components/ui/journey.vue";
                     class="relative flex h-20 w-20 items-center justify-center rounded-full border-4 border-white bg-orange-100 shadow-lg dark:border-slate-800 dark:bg-orange-950 sm:h-24 sm:w-24"
                   >
                     <img
+                      loading="lazy"
+                      fetchpriority="high"
                       src="https://i.pravatar.cc/150?img=11"
                       alt="Ahmad Rizky"
                       class="h-full w-full rounded-full object-cover"
@@ -147,6 +149,8 @@ import Journey from "@/components/ui/journey.vue";
                     class="relative flex h-20 w-20 items-center justify-center rounded-full border-4 border-white bg-indigo-100 shadow-lg dark:border-slate-800 dark:bg-indigo-950 sm:h-24 sm:w-24"
                   >
                     <img
+                      loading="lazy"
+                      fetchpriority="high"
                       src="https://i.pravatar.cc/150?img=5"
                       alt="Sari Dewi"
                       class="h-full w-full rounded-full object-cover"
@@ -201,6 +205,8 @@ import Journey from "@/components/ui/journey.vue";
                       class="relative flex h-20 w-20 items-center justify-center rounded-full border-4 border-white bg-emerald-100 shadow-xl ring-4 ring-blue-400/20 dark:border-slate-800 dark:bg-emerald-950 sm:h-24 sm:w-24"
                     >
                       <img
+                        loading="lazy"
+                        fetchpriority="high"
                         src="https://i.pravatar.cc/150?img=12"
                         alt="Budi Santoso"
                         class="h-full w-full rounded-full object-cover"
@@ -260,7 +266,12 @@ import Journey from "@/components/ui/journey.vue";
                 <div
                   class="bg-surface-glass shadow-black/6.5 ring-border absolute inset-0 m-auto flex size-9 items-center rounded-full shadow-sm ring *:m-auto"
                 >
-                  <img src="/favicon.svg" class="size-3.5" />
+                  <img
+                    loading="lazy"
+                    fetchpriority="high"
+                    src="/favicon.svg"
+                    class="size-3.5"
+                  />
                 </div>
 
                 <div
@@ -274,6 +285,8 @@ import Journey from "@/components/ui/journey.vue";
                     class="bg-card relative flex size-7 items-center rounded-full border backdrop-blur *:m-auto -translate-x-1.5"
                   >
                     <img
+                      loading="lazy"
+                      fetchpriority="high"
                       src="https://cdn.simpleicons.org/firebase"
                       class="size-3.5"
                       alt="Firebase"
@@ -284,6 +297,8 @@ import Journey from "@/components/ui/journey.vue";
                     class="bg-card shadow-black/6.5 ring-border relative flex size-7 items-center rounded-full shadow-sm ring *:m-auto translate-x-1.5"
                   >
                     <img
+                      loading="lazy"
+                      fetchpriority="high"
                       src="https://cdn.simpleicons.org/supabase"
                       class="size-3.5"
                       alt="Supabase"
@@ -302,6 +317,8 @@ import Journey from "@/components/ui/journey.vue";
                     class="bg-card relative flex size-7 items-center rounded-full border backdrop-blur *:m-auto -translate-x-1.5"
                   >
                     <img
+                      loading="lazy"
+                      fetchpriority="high"
                       src="https://cdn.simpleicons.org/vercel"
                       class="size-3.5"
                       alt="Vercel"
@@ -312,6 +329,8 @@ import Journey from "@/components/ui/journey.vue";
                     class="bg-card shadow-black/6.5 ring-border relative flex size-7 items-center rounded-full shadow-sm ring *:m-auto translate-x-1.5"
                   >
                     <img
+                      loading="lazy"
+                      fetchpriority="high"
                       src="https://img.icons8.com/color/48/slack-new.png"
                       alt="Slack"
                       class="size-3.5"
@@ -330,6 +349,8 @@ import Journey from "@/components/ui/journey.vue";
                     class="bg-card shadow-black/6.5 ring-border relative flex size-7 items-center rounded-full shadow-sm ring *:m-auto -translate-x-1.5"
                   >
                     <img
+                      loading="lazy"
+                      fetchpriority="high"
                       src="https://cdn.simpleicons.org/clerk"
                       class="size-3.5"
                       alt="Clerk"
@@ -340,6 +361,8 @@ import Journey from "@/components/ui/journey.vue";
                     class="bg-card relative flex size-7 items-center rounded-full border backdrop-blur *:m-auto translate-x-1.5"
                   >
                     <img
+                      loading="lazy"
+                      fetchpriority="high"
                       src="https://cdn.simpleicons.org/linear"
                       class="size-3.5"
                       alt="Linear"

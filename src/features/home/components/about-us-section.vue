@@ -1622,6 +1622,8 @@ onBeforeUnmount(() => {
                           />
                         </svg>
                         <img
+                          loading="lazy"
+                          fetchpriority="high"
                           :src="item.image"
                           :alt="item.name"
                           draggable="false"

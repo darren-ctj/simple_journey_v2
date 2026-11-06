@@ -33,6 +33,7 @@ import CountUp from "@/components/ui/count-up.vue";
     <!-- Background Image -->
     <div class="absolute z-[1] left-0 top-0 w-full h-[70%]">
       <img
+        fetchpriority="high"
         src="/features/home/hero/hero-section-bg.webp"
         alt="Background Image"
         class="w-full h-full object-cover opacity-20"
@@ -147,6 +148,7 @@ import CountUp from "@/components/ui/count-up.vue";
             class="flex items-center justify-center h-10 w-28 rounded-sm bg-secondary-foreground/75"
           >
             <img
+              fetchpriority="high"
               :src="logo.src"
               :alt="logo.name"
               class="h-4 w-auto brightness-0"

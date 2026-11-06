@@ -318,6 +318,8 @@ function imageStyle(k: number): CSSProperties {
         >
           <img
             v-if="getImage(t - 1, columns - t)"
+            loading="lazy"
+            fetchpriority="high"
             :src="getImage(t - 1, columns - t)?.src"
             :alt="k === 1 ? (getImage(t - 1, columns - t)?.alt ?? '') : ''"
             draggable="false"

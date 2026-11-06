@@ -13,6 +13,8 @@ const props = defineProps<Testimonial>();
     <div class="flex items-center gap-3">
       <img
         v-if="props.avatar"
+        loading="lazy"
+        fetchpriority="high"
         :src="props.avatar"
         :alt="props.name"
         class="size-10 shrink-0 rounded-full object-cover"

@@ -8,7 +8,7 @@ export const TESTIMONIALS: Testimonial[][] = [
       name: "Sofia Marino",
       role: "Product Manager",
       company: "Brightloop",
-      avatar: "https://i.pravatar.cc/100?img=47",
+      avatar: "https://i.pravatar.cc/100?img=11",
       verified: true,
     },
     {
@@ -17,7 +17,7 @@ export const TESTIMONIALS: Testimonial[][] = [
       name: "Daniel Kim",
       role: "Founder",
       company: "Northstar",
-      avatar: "https://i.pravatar.cc/100?img=12",
+      avatar: "https://i.pravatar.cc/100?img=5",
       verified: true,
     },
     {
@@ -26,7 +26,7 @@ export const TESTIMONIALS: Testimonial[][] = [
       name: "Olivia Chen",
       role: "Design Lead",
       company: "Forma",
-      avatar: "https://i.pravatar.cc/100?img=44",
+      avatar: "https://i.pravatar.cc/100?img=12",
     },
   ],
   [
@@ -36,7 +36,7 @@ export const TESTIMONIALS: Testimonial[][] = [
       name: "Marcus Reed",
       role: "CEO",
       company: "Layers",
-      avatar: "https://i.pravatar.cc/100?img=13",
+      avatar: "https://i.pravatar.cc/100?img=9",
       verified: true,
     },
     {
@@ -45,7 +45,7 @@ export const TESTIMONIALS: Testimonial[][] = [
       name: "Amelia Brooks",
       role: "Product Designer",
       company: "Studio One",
-      avatar: "https://i.pravatar.cc/100?img=45",
+      avatar: "https://i.pravatar.cc/100?img=15",
     },
     {
       quote:
@@ -64,7 +64,7 @@ export const TESTIMONIALS: Testimonial[][] = [
       name: "Isabella Rossi",
       role: "Creative Director",
       company: "Monogram",
-      avatar: "https://i.pravatar.cc/100?img=48",
+      avatar: "https://i.pravatar.cc/100?img=5",
       verified: true,
     },
     {
@@ -73,7 +73,7 @@ export const TESTIMONIALS: Testimonial[][] = [
       name: "Ethan Parker",
       role: "Growth Manager",
       company: "Momentum",
-      avatar: "https://i.pravatar.cc/100?img=14",
+      avatar: "https://i.pravatar.cc/100?img=12",
     },
     {
       quote:
@@ -81,7 +81,7 @@ export const TESTIMONIALS: Testimonial[][] = [
       name: "Chloe Martin",
       role: "Founder",
       company: "Sunday",
-      avatar: "https://i.pravatar.cc/100?img=49",
+      avatar: "https://i.pravatar.cc/100?img=9",
       verified: true,
     },
   ],
