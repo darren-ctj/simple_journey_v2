@@ -18,7 +18,7 @@ const serviceIcons = [Layers, Server, MonitorSmartphone, Settings2];
       class="relative container-wide flex flex-col items-start pt-28 pb-12 text-left lg:pt-32 lg:pb-20"
     >
       <video
-        class="absolute right-4 sm:right-6 md:right-10 lg:right-12 top-20 lg:top-22 w-2/3 h-2/3 hidden sm:block object-cover [mask-image:linear-gradient(to_bottom,transparent_0%,black_15%,black_85%,transparent_100%),linear-gradient(to_left,transparent_0%,black_15%,black_100%),radial-gradient(ellipse_at_top_right,black_0%,black_20%,transparent_45%)] [mask-composite:intersect] [-webkit-mask-image:linear-gradient(to_bottom,transparent_0%,black_15%,black_85%,transparent_100%),linear-gradient(to_left,transparent_0%,black_15%,black_100%),radial-gradient(ellipse_at_top_right,black_0%,black_20%,transparent_45%)] [-webkit-mask-composite:source-in]"
+        class="absolute -z-[1] right-4 sm:right-6 md:right-10 lg:right-12 top-20 lg:top-22 w-2/3 h-2/3 hidden sm:block object-cover [mask-image:linear-gradient(to_bottom,transparent_0%,black_15%,black_85%,transparent_100%),linear-gradient(to_left,transparent_0%,black_15%,black_100%),radial-gradient(ellipse_at_top_right,black_0%,black_20%,transparent_45%)] [mask-composite:intersect] [-webkit-mask-image:linear-gradient(to_bottom,transparent_0%,black_15%,black_85%,transparent_100%),linear-gradient(to_left,transparent_0%,black_15%,black_100%),radial-gradient(ellipse_at_top_right,black_0%,black_20%,transparent_45%)] [-webkit-mask-composite:source-in]"
         autoplay
         loop
         muted

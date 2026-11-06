@@ -26,7 +26,7 @@ const images = [
       class="relative container-wide flex flex-col items-start sm:items-center text-left sm:text-center pt-28 pb-12 text-left lg:pt-32 lg:pb-20"
     >
       <video
-        class="absolute left-0 top-0 w-full h-full object-cover opacity-80 [mask-image:linear-gradient(to_bottom,transparent_0%,black_20%,black_80%,transparent_100%),linear-gradient(to_right,transparent_0%,black_15%,black_85%,transparent_100%)] [mask-composite:intersect] [-webkit-mask-image:linear-gradient(to_bottom,transparent_0%,black_20%,black_80%,transparent_100%),linear-gradient(to_right,transparent_0%,black_15%,black_85%,transparent_100%)] [-webkit-mask-composite:source-in]"
+        class="absolute -z-[1] left-0 top-0 w-full h-full object-cover opacity-80 [mask-image:linear-gradient(to_bottom,transparent_0%,black_20%,black_80%,transparent_100%),linear-gradient(to_right,transparent_0%,black_15%,black_85%,transparent_100%)] [mask-composite:intersect] [-webkit-mask-image:linear-gradient(to_bottom,transparent_0%,black_20%,black_80%,transparent_100%),linear-gradient(to_right,transparent_0%,black_15%,black_85%,transparent_100%)] [-webkit-mask-composite:source-in]"
         autoplay
         loop
         muted

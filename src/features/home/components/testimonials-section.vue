@@ -100,7 +100,7 @@ const MOBILE_TESTIMONIALS = computed(() => TESTIMONIALS.flat());
     </div>
 
     <video
-      class="absolute left-0 bottom-0 w-full h-2/5 object-cover opacity-60 [mask-image:linear-gradient(to_bottom,transparent_0%,black_20%,black_80%,transparent_100%),linear-gradient(to_right,transparent_0%,black_15%,black_85%,transparent_100%)] [mask-composite:intersect] [-webkit-mask-image:linear-gradient(to_bottom,transparent_0%,black_20%,black_80%,transparent_100%),linear-gradient(to_right,transparent_0%,black_15%,black_85%,transparent_100%)] [-webkit-mask-composite:source-in]"
+      class="absolute -z-[1] left-0 bottom-0 w-full h-2/5 object-cover opacity-60 [mask-image:linear-gradient(to_bottom,transparent_0%,black_20%,black_80%,transparent_100%),linear-gradient(to_right,transparent_0%,black_15%,black_85%,transparent_100%)] [mask-composite:intersect] [-webkit-mask-image:linear-gradient(to_bottom,transparent_0%,black_20%,black_80%,transparent_100%),linear-gradient(to_right,transparent_0%,black_15%,black_85%,transparent_100%)] [-webkit-mask-composite:source-in]"
       autoplay
       loop
       muted
