@@ -1,6 +1,7 @@
 # Simple Journey Indonesia Website Home Page Rebuild (V2)
 
-![Home Page](docs/home.png)
+![Preview 1](docs/preview-1.gif)
+![Preview 2](docs/preview-2.gif)
 
 🌐 Live URL : https://simplejourneyv2.netlify.app/
 
